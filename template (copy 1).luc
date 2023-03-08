@@ -1,0 +1,23 @@
+module testRom (
+input address[{{ceil(log(len(data),2))}}],
+{%for title in titles -%}
+output {{title}}{% if not loop.last %},{% endif %}  
+{%endfor %}
+    
+  ) {
+{%for title in titles -%}
+const {{re.search("(.+)\[",title).groups()[0].upper()}} = { {% for x in reversed(data[title]) -%}{{x}}{% if not loop.last %},{% endif %}{% endfor %} } ;
+{%endfor %}
+const A =                           {16d10,  16hffff,           16b0};
+const B =                           {16d5,    16b1,              16d1};
+  const ALUFN =               {1b0,       1b0,                1b0};
+  always {
+
+{%for title in titles -%}
+{{re.search("(.+)\[",title).groups()[0]}} = {{re.search("(.+)\[",title).groups()[0].upper()}}[address];
+{%endfor %}
+    a = A[address];
+    b = B[address];
+    alufn = ALUFN[address];
+  }
+}

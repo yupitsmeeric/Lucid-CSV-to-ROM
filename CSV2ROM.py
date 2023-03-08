@@ -37,10 +37,5 @@ with open('testRom.luc', 'w') as file:
     file.write(output)
 
 
-# In[10]:
 
-
-
-with open('testRom.luc', 'w') as file:
-    file.write("lolllll")
 

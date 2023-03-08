@@ -1,4 +1,6 @@
 # Lucid-CSV-to-ROM
+Dependancies: Python(3), pandas, jinja2
+
 A small script that will convert a CSV into a ROM to be used in Lucid HDL. 
 
 Just run the CSV2ROM script in the directory containing the rom.csv and template.luc files (I hardcoded the file names LMAO feel free to change them so that they jack straight into your working directories for )

@@ -14,7 +14,7 @@ import re
 
 
 data = pd.read_csv("./rom.csv")
-tits = data.columns
+tits = [x  for x in data.columns if x[0]!="#"]
 
 
 # In[13]:
